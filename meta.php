@@ -1,0 +1,24 @@
+
+<meta charset="utf-8" />
+<meta name = "viewport" content = "width=device-width, maximum-scale = 1, minimum-scale=1" />
+<link type="text/css" href="css/animation.css" rel="stylesheet" />
+<link type="text/css" href="css/kana.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<!-- ANIMATION HEADER & FOOTER -->
+<script src="js/jquery-animate-css-rotate-scale.js"></script>
+<script src="js/jqueryResize.js"></script>
+<script src="js/jquery-css-transform.js"></script>
+<script type="text/javascript" src="js/queryLoader.js"></script>
+<script>
+$(function() {
+$( "#accordion" ).accordion({
+  heightStyle: "content"
+});
+});
+</script>
+<title>KANA CIPTA MEDIA</title>
+<!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="js/respond.min.js"></script>
+<![endif]-->

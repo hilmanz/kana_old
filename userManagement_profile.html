@@ -1,0 +1,90 @@
+{literal}
+<script>
+	$(document).on('change','#status',function(){
+		var contentid = $(this).attr('contentid');
+		var statusid = $(this).val();
+		var userid = $('#user_id_'+contentid).val();
+		//alert(userid);
+		$.post(basedomain+"index.php?s=userManagement&act=ajax" ,{status:statusid, id:userid}, function(dataGiid){
+			//alert(dataGiid);
+			var status = dataGiid.status;
+			//alert(status);
+			if (status == true || status == 'true'){
+				alert('Validate Success');
+				
+			}else{
+				alert('Validate Failed');
+			}
+			
+		},"JSON");
+	});
+</script>
+{/literal}
+
+<div class="theContent">
+
+    <div class="theTitle">
+        <h2>User Profile</h2>
+    </div><!--contenttitle-->
+	<form name="cal" method="post" action="" enctype="multipart/form-data" onsubmit="javascript: return validator(); ">
+	<table cellpadding="0" cellspacing="0" border="0" id="table1" class="stdtable">
+          
+        <tbody>
+			<tr><td>GIID Image </td><td><img src="{$baseurl}public_assets/user/gid/{$img}" />&nbsp</td></tr>
+			  <tr><td>Register Date</td><td>{$register_date}</td></tr>
+            <tr><td>Register ID</td><td>{$registerid}<input type="hidden" id="user_id_{$registerid}" value="{$id}" />&nbsp</td></tr>
+            <tr><td>Name</td><td><input type="text" id="name" name="name" value="{$name}" /></td></tr>
+			<tr><td>Middle Name</td><td><input type="text" id="middle_name" name="middle_name" value="{$middle_name}" /></td></tr>
+			<tr><td>Last Name</td><td><input type="text" id="last_name" name="last_name" value="{$last_name}" /></td></tr>
+            <tr><td>Nickname</td><td><input type="text" id="nickname" name="nickname" value="{$nickname}" /></td></tr>
+              <tr><td>Email</td><td>{$email}</td></tr>
+            <tr><td>City</td><td>
+					<select name="city" style="width:200px;" >
+						<option value="city" selected="selected">{$city}</option>
+						{section name=i loop=$cityRef}
+						<option value="{$cityRef[i].id}">{$cityRef[i].city}</option>
+						{/section}
+					</select>
+				</td></tr>
+            <tr><td>Sex</td>
+				<td>
+					<input type="radio" name="sex" value="M" {if $sex == 'M'}selected="selected"{/if}>Male &nbsp 	
+					<input type="radio" name="sex" value="F" {if $sex == 'F'}selected="selected"{/if}>Female
+				</td>
+			</tr>
+            <tr><td>Birthday</td><td><input type="text" id="birthday" name="birthday" value="{$birthday}" class="datepicker radius3" /></td></tr>         
+            
+			
+            <tr><td>Username</td><td><input type="text" id="username" name="username" value="{$username}" /></td></tr>
+			
+            <tr><td>Address</td><td><input type="text" id="StreetName" name="StreetName" value="{$StreetName}" /></td></tr>
+            <tr><td>Refered By</td><td><input type="text" id="refered_by" name="refered_by" value="{$refered_by}" /></td></tr>
+          
+            <tr><td>Phone Number</td><td><input type="text" id="phone_number" name="phone_number" value="{$phone_number}" /></td></tr>
+            <tr><td>Landline Number</td><td><input type="text" id="landline_number" name="landline_number" value="{$landline_number}" /></td></tr>
+            <tr><td>Description</td><td><input type="text" id="description" name="description" value="{$description}" /></td></tr>
+			<tr><td>Approval</td>
+				<td align="center">
+					<select id="status" contentid="{$registerid}">
+						<option value="0" class="orange" {if $n_status == 0} selected="selected"{/if}>Pending</option>
+						<option value="1" class="green" {if $n_status == 1} selected="selected"{/if}>Verified</option>
+						<option value="2" class="red" {if $n_status == 2} selected="selected"{/if}>Rejected</option>
+						<!--<option value="3" class="red" {if $n_status == 3} selected="selected"{/if}>Deleted</option>
+						<option value="4" class="red" {if $n_status == 4} selected="selected"{/if}>Deactived</option>-->
+					</select>
+				</td>
+			</tr>
+			<tr>
+			<td></td>
+				<input type="hidden" name="simpan" value="true" />
+				<input type="hidden" name="currentauthorid" value="{$authorid}" class="currentauthorid" />
+				<input type="hidden" name="id" value="{$id}" />
+                <td align="right"><input type="submit" value=" Save " class="stdbtn btn_orange">&nbsp;&nbsp; <input type="button" class="stdbtn btn_yellow" value="Cancel" onclick="javascript: window.location.href='index.php?s={$folder}' ;" /></td>
+            </tr>
+        </tbody>
+    </table>
+	</form>
+	<div class="paging">
+    	{$paging}
+    </div>
+</div><!--theContent-->

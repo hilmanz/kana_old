@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?php include("meta.php"); ?>
+</head>
+
+<body style="overflow-x:hidden;">
+    <div id="body">
+        <div id="universal">
+           <div id="header" class="w960">
+            	<div class="logo">
+                	<a href="index2.php">&nbsp;</a>
+                </div>
+                <div id="navigation">
+                	<ul class="nav">
+                    	<li class="about"><a <?php if($_GET['menu']=='about'){ ?> class="current" <?php } ?> href="index2.php?menu=about">About</a></li>
+                    	<li class="services"><a <?php if($_GET['menu']=='services'){ ?> class="current" <?php } ?> 
+												<?php if($_GET['menu']=='elaborate'){ ?> class="current" <?php } ?>  href="index2.php?menu=services">Services</a></li>
+                    	<li class="tools"><a <?php if($_GET['menu']=='tools'){ ?> class="current" <?php } ?> 
+                        					<?php if($_GET['menu']=='tools-smac'){ ?> class="current" <?php } ?> 
+                                            <?php if($_GET['menu']=='tools-kana'){ ?> class="current" <?php } ?> 
+                        					href="index2.php?menu=tools">tools</a></li>
+                    	<li class="clients"><a <?php if($_GET['menu']=='clients'){ ?> class="current" <?php } ?> href="index2.php?menu=clients">Clients</a></li>
+                    	<li class="case"><a <?php if($_GET['menu']=='case'){ ?> class="current" <?php } ?> href="index2.php?menu=case">Case Studies</a></li>
+                    	<li class="services"><a class="current" href="careers.php">Careers</a></li>
+                    	<li class="about"><a <?php if($_GET['menu']=='contact'){ ?> class="current" <?php } ?> href="index2.php?menu=contact">Contact</a></li>
+                    </ul>
+      			     <script language="javascript">setPage()</script>
+                </div>
+            </div><!-- end #header -->
+			<?php include("career-content.php");?>
+            <div id="socialBox">
+            	<a class="iconFacebook" href="https://www.facebook.com/kanadigital" target="_blank">&nbsp;</a>
+            	<a class="iconYoutube" href="http://www.youtube.com/user/kanadigital" target="_blank">&nbsp;</a>
+            	<a class="iconCareer" href="careers.php" target="_blank" style="opacity:1;">&nbsp;</a>
+            </div>
+        </div><!-- end #universal -->
+    </div><!-- end #body -->
+</body>
+</html>
